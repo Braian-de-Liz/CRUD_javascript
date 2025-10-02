@@ -15,7 +15,7 @@ app.use("/api", rota_salvar_clients);
 
 
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT_SERVER, () => {
     console.log("rodando com node que é melhor que php");
 
 });
