@@ -3,17 +3,48 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const clientes = [];
+const clientes = {
+    id: 1,
+    nome: 'elias',
+    idade: 34,
+    uf: 'RS'
+};
 
 
-async function inserir_User() {
+async function inserir_User(clientee) {
 
-    
-} 
-
-async function conectar() {
-    mysql;
+    cliente.push(clientee);
 }
 
-export {inserir_User, conectar};
+async function selecionar_Clientes(id) {
+
+    return clientes.find(c => c.id === id);
+
+}
+
+async function selecionar(cliente) {
+
+}
+
+async function conectar() {
+    
+    try { 
+        const connetar = await mysql.createConnection({
+            host: process.env.DB_HOST,
+            user: process.env.DB_USER,
+            passoword: process.env.DB_PASSWORD,
+            database: process.env.DB_NAME,
+            port: process.env.DB_PORT
+        })
+    }
+
+    catch (error) { 
+        console.error("não conectou certo", error.message);
+        throw error;
+    }
+
+
+}
+
+export { inserir_User, selecionar_Clientes, conectar };
 
