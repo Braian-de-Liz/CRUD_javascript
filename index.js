@@ -1,6 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import db from './conectar_db.js';
+// import db from './conectar_db.js';
 import rota_salvar_clients from './rotas/rota1.js'
 
 dotenv.config();

@@ -1,4 +1,4 @@
-import mysql from 'mysql2';
+import mysql from 'mysql2/promise';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -12,13 +12,13 @@ const clientes = {
 
 
 async function inserir_User(clientee) {
+    
+    
 
-    cliente.push(clientee);
 }
 
 async function selecionar_Clientes(id) {
 
-    return clientes.find(c => c.id === id);
 
 }
 
@@ -29,13 +29,15 @@ async function selecionar(cliente) {
 async function conectar() {
     
     try { 
-        const connetar = await mysql.createConnection({
+        const connetar =  mysql.createPool({
             host: process.env.DB_HOST,
             user: process.env.DB_USER,
             passoword: process.env.DB_PASSWORD,
             database: process.env.DB_NAME,
             port: process.env.DB_PORT
         })
+
+        return connetar;
     }
 
     catch (error) { 
